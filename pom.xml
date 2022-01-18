@@ -53,10 +53,25 @@
             <artifactId>slf4j-simple</artifactId>
             <version>${version.slf4j}</version>
         </dependency>
+        <dependency>
+            <!-- JUnit 5 guide: https://junit.org/junit5/docs/current/user-guide/ -->
+            <!-- Sample JUnit 5 test: https://mkyong.com/junit5/junit-5-maven-examples/ -->
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.8.2</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
         <plugins>
+            <!-- Need at least 2.22.0 to support JUnit 5 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M3</version>
+            </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
